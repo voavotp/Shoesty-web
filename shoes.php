@@ -9,22 +9,22 @@ if (!isset($_SESSION['username']) && !isset($_COOKIE['username'])) {
 
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : $_COOKIE['username'];
 
-// Default sort option and order
-$sort_option = isset($_GET['sort']) ? $_GET['sort'] : 'name';
-$sort_order = isset($_GET['order']) && $_GET['order'] === 'desc' ? 'desc' : 'asc';  // Default to ascending
+// sorting
+$pricesort = isset($_GET['sort']) ? $_GET['sort'] : 'name';
+$sortingUpDown = isset($_GET['order']) && $_GET['order'] === 'desc' ? 'desc' : 'asc'; 
 
-if ($sort_order === 'asc') {
-    $next_sort_order = 'desc';
+if ($sortingUpDown === 'asc') {
+    $nextoder = 'desc';
 } else {
-    $next_sort_order = 'asc';
+    $nextoder = 'asc';
 }
 
 // Fetch shoes from the database
 $query = "SELECT * FROM shoes";
-if ($sort_option === 'price') {
-    $query .= " ORDER BY Price $sort_order";  // Sorting by price
+if ($pricesort === 'price') {
+    $query .= " ORDER BY Price $sortingUpDown";  
 } else {
-    $query .= " ORDER BY Name $sort_order";   // Sorting alphabetically by name
+    $query .= " ORDER BY Name $sortingUpDown";  
 }
 
 $result = $conn->query($query);
@@ -52,24 +52,24 @@ while ($row = $result->fetch_assoc()) {
 <div class="page">
     <h1>Browse All Shoes</h1>
 
-    <!-- Sorting Controls -->
+    <!-- sorting boxes -->
     <div class="sort">
-        <a href="shoes.php?sort=name&order=<?= $next_sort_order ?>" class="sortbutton">
+        <a href="shoes.php?sort=name&order=<?= $nextoder ?>" class="sortbutton">
             Sort Alphabetically 
-            <?php echo $sort_order === 'asc' ? 'A-Z' : 'Z-A'; ?>
+            <?php echo $sortingUpDown === 'asc' ? 'A-Z' : 'Z-A'; ?>
         </a>
 
-        <a href="shoes.php?sort=price&order=<?= $next_sort_order ?>" class="sortbutton">
+        <a href="shoes.php?sort=price&order=<?= $nextoder ?>" class="sortbutton">
             Sort by Price 
-            <?php echo $sort_order === 'asc' ? 'Low to High' : 'High to Low'; ?>
+            <?php echo $sortingUpDown === 'asc' ? 'Low to High' : 'High to Low'; ?>
         </a>
     </div>
 
-    <!-- Displaying Shoes -->
+    <!-- shoeboxes -->
     <div id="showresult">
         <?php if (count($shoes) > 0): ?>
             <?php foreach ($shoes as $shoe): ?>
-                <?php include 'php/shoebox.php'; ?> <!-- Include shoebox template -->
+                <?php include 'php/shoebox.php'; ?>
             <?php endforeach; ?>
         <?php else: ?>
             <p>No shoes available.</p>
