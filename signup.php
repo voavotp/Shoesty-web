@@ -19,12 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         echo "An account with that Username or email already exists.";
     } else {
-// save the user
+        //  save the user
         $stmt = $conn->prepare("INSERT INTO users (Name, Surname, Username, Password, Email) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $name, $surname, $username, $password, $email);
 
         if ($stmt->execute()) {
             $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
             setcookie("username", $_SESSION['username'], time() + 2000, "/", "", true, true);
 
 

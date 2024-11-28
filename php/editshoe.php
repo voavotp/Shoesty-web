@@ -11,6 +11,7 @@ if (!isset($_GET['id'])) {
     echo "Shoe not found.";
     exit;
 }
+
 // code for getting shoe information
 $shoeID = $_GET['id'];
 $stmt = $conn->prepare("SELECT * FROM shoes WHERE ShoeID = ?");
@@ -19,8 +20,7 @@ $stmt->execute();
 $shoe = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
-
-// updatabale variables
+// updatable variables
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $model = $_POST['model'];
     $name = $_POST['name'];
@@ -28,22 +28,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = $_POST['price'];
     $image = $_FILES['image']['name'] ? $_FILES['image']['name'] : $shoe['Image'];
 
-// code for new image in exisiting shoe
+    // code for new image in existing shoe
     if ($_FILES['image']['name']) {
         $imagename = basename($_FILES['image']['name']); 
         $selectfile = "images/" . $imagename; 
 
-    if (!move_uploaded_file($_FILES['image']['tmp_name'], "../" . $selectfile)) {
+        if (!move_uploaded_file($_FILES['image']['tmp_name'], "../" . $selectfile)) {
             echo "Error uploading image.";
             exit;
         }
-    $image = $selectfile;
+        $image = $selectfile;
     }
 
-// database changes
+    // database changes
     $stmt = $conn->prepare("UPDATE shoes SET Model = ?, Name = ?, Brand = ?, Price = ?, Image = ? WHERE ShoeID = ?");
     $stmt->bind_param("sssssi", $model, $name, $brand, $price, $image, $shoeID);
-// send user to correct page
+
+    // send user to correct page
     if ($stmt->execute()) {
         if (isset($_SESSION['Admin']) && $_SESSION['Admin'] === true) {
             header("Location: ../adminpage.php"); 

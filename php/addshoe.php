@@ -6,7 +6,8 @@ if (!isset($_SESSION['username'])) {
     header("Location: ../shoesty/login.php");
     exit;
 }
-// neccessary variables
+
+// Necessary variables
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $model = $_POST['model'];
     $name = $_POST['name'];
@@ -19,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $imageFileType = strtolower(pathinfo($selectfile, PATHINFO_EXTENSION));
     $allowedimage = array('jpg', 'jpeg', 'png');
-// code for saving image correctly
+
+    // Code for saving image correctly
     if (in_array($imageFileType, $allowedimage)) {
         if (!is_dir($filelocation) || !is_writable($filelocation)) {
             die("Error: The 'images' directory doesn't exist or is not writable.");
@@ -29,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $stmt = $conn->prepare("INSERT INTO shoes (Model, Name, Brand, Price, Email, Image) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssss", $model, $name, $brand, $price, $email, $image_path);
-// send user to correct page
+
+            // Send user to the correct page
             if ($stmt->execute()) {
                 if (isset($_SESSION['Admin']) && $_SESSION['Admin'] === true) {
                     header("Location: ../adminpage.php");
@@ -43,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->close();
         } 
     } 
-
 }
 ?>
 
@@ -59,20 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="formbox">
     <h1>Add New Shoe</h1>
     <form method="POST" action="addshoe.php" enctype="multipart/form-data">
-        <label>Model</label>
-        <input type="text" name="model" required><br>
-
-        <label>Name</label>
-        <input type="text" name="name" required><br>
-
-        <label>Brand</label>
-        <input type="text" name="brand" required><br>
-
-        <label>Price</label>
-        <input type="text" name="price" required><br>
-
-        <label>Image</label>
-        <input type="file" name="image" required><br>
+        <label>Model</label><input type="text" name="model" required>
+        <label>Name</label><input type="text" name="name" required>
+        <label>Brand</label><input type="text" name="brand" required>
+        <label>Price</label><input type="text" name="price" required>
+        <label>Image</label><input type="file" name="image" required>
 
         <button type="submit">Add Shoe</button>
     </form>

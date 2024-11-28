@@ -26,7 +26,7 @@ if (!empty($search)) {
         ? "Model, Name, Brand"
         : "Model, Name, Brand, Image, Price, Email";
 
-    $sql = "SELECT $fields FROM shoes WHERE $shoevariable LIMIT 5";
+    $sql = "SELECT $fields FROM shoes WHERE $shoevariable LIMIT 20";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(str_repeat('s', count($params)), ...$params);
     $stmt->execute();

@@ -3,7 +3,7 @@ table {
     width: 85%;
     margin: auto;
     margin-top: 20px;
-    border: 10px; 
+    border: 10px;
     background-color: white;
     text-align: center;
 }
@@ -15,19 +15,19 @@ th, td {
 }
 
 th {
-    background-color: #cac5c594; 
+    background-color: #cac5c594;
     color: black;
 }
 
 td {
-    border-bottom: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd;
 }
 
 tr:hover {
     background-color: #f0f0f0;
 }
 
-/* for image in table */
+/*  for image in table */
 img {
     border-radius: 5px;
 }

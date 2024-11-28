@@ -19,6 +19,17 @@ body {
   flex: 1;
   text-align: center;
 }
+.page h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px; 
+  max-width: 50%;
+  margin: auto;
+  border-radius: 10px
+}
+
 
 /* buttons for sorting later used for most buttons */
 .sort {
@@ -41,6 +52,7 @@ body {
 .sortbutton:hover {
   background-color: #0056b3;
 }
+
 
 /* Navbar */
 nav {
@@ -111,21 +123,22 @@ nav li:first-child {
 
 @media (max-width: 550px) {
   .mobilehidden {
-    display: none;
+      display: none;
   }
 
   .menubutton {
-    display: block;
+      display: block;
   }
 }
 
 @media (max-width: 250px) {
   .dynamicside {
-    width: 100%;
+      width: 100%;
   }
 }
 
-/*footer*/
+
+/* footer */
 .footer {
   background-color: #f1f1f1;
   padding: 20px;
@@ -203,20 +216,20 @@ nav li:first-child {
   color: var(--blue-colour);
 }
 
-/* Large screens footer layout */
 @media screen and (min-width: 768px) {
   .footerbox {
-    flex-direction: row;
-    justify-content: space-around;
+      flex-direction: row;
+      justify-content: space-around;
   }
 }
 
 @media (max-width: 768px) {
   .footerbox {
-    flex-direction: column;
-    align-items: center;
+      flex-direction: column;
+      align-items: center;
   }
 }
+
 
 /* Shoebox */
 #showresult {
@@ -273,13 +286,14 @@ nav li:first-child {
 
 @media (max-width: 750px) {
   .shoebox {
-    max-width: 100%;
+      max-width: 100%;
   }
 
   .shoebox-image {
-    max-height: 150px;
+      max-height: 150px;
   }
 }
+
 
 /* searchbutton and dropdown */
 #searchbutton {

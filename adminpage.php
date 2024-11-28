@@ -44,7 +44,7 @@ $result = $stmt->get_result();
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-<!-- table results -->
+        <!-- table results -->
         <?php
         if ($result->num_rows > 0) {
             while ($shoe = $result->fetch_assoc()) {
@@ -69,7 +69,7 @@ $result = $stmt->get_result();
         }
         ?>
     </table>
-<!-- buttons outside table  -->
+    <!-- buttons outside table  -->
     <section class="page">
         <button class="sortbutton" onclick="window.location.href='../shoesty/php/addshoe.php'">Create New Shoe</button>
         <button class="sortbutton" onclick="window.location.href='../shoesty/logout.php'">Logout</button> 
@@ -80,6 +80,6 @@ $result = $stmt->get_result();
     $title = 'footer';
     $page = 'Admin';
     include('../shoesty/php/footer.php');
-  ?>
+    ?>
 </body>
 </html>
