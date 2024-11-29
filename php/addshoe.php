@@ -58,17 +58,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Add New Shoe</title>
 </head>
 <body>
-<div class="formbox">
-    <h1>Add New Shoe</h1>
-    <form method="POST" action="addshoe.php" enctype="multipart/form-data">
-        <label>Model</label><input type="text" name="model" required>
-        <label>Name</label><input type="text" name="name" required>
-        <label>Brand</label><input type="text" name="brand" required>
-        <label>Price</label><input type="text" name="price" required>
-        <label>Image</label><input type="file" name="image" required>
+    <!-- logo -->
+    <section>
+        <img src="../images/name.png" class="logo" width="200">
+    </section>
+    <!-- form add -->
+    <div class="formbox">
+        <h1>Add New Shoe</h1>
+        <form method="POST" action="addshoe.php" enctype="multipart/form-data">
+            <label>Model</label><input type="text" name="model" required>
+            <label>Name</label><input type="text" name="name" required>
+            <label>Brand</label><input type="text" name="brand" required>
+            <label>Price</label><input type="text" name="price" required>
+            <label>Image</label><input type="file" name="image" required>
 
-        <button type="submit">Add Shoe</button>
-    </form>
-</div>
+            <button type="submit">Add Shoe</button>
+        </form>
+    </div>
 </body>
 </html>

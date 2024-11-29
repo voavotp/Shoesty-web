@@ -68,6 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Edit Shoe</title>
 </head>
 <body>
+    <!-- logo -->
+    <section>
+        <img src="../images/name.png" class="logo" width="200">
+    </section>
+    <!-- form edit -->
     <div class="formbox">
         <h1>Edit Shoe</h1>
         <form method="POST" enctype="multipart/form-data">

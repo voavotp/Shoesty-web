@@ -23,3 +23,9 @@ Password: v1
 
 Username: EvilWizard
 Password: EvilWizard1
+
+Username: mi
+Password: port
+
+github:
+https://github.com/voavotp/shoesty

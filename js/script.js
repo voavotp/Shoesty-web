@@ -4,9 +4,8 @@ $(document).ready(function () {
 
     // code for autocomplete
     searchbar.typeahead({
-        hint: true,
         highlight: true,
-        minLength: 1,
+        minLength: 3,
     }, {
         name: 'shoes',
         display: 'display',

@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         
         <!-- Link to Sign In Page -->
-        <p class="signup-link">Have an account? <a href="login.php">Login here</a></p>
+        <p>Have an account? <a href="login.php">Login here</a></p>
     </div>
 </body>
 </html>

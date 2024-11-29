@@ -19,15 +19,15 @@ if ($sortingUpDown === 'asc') {
     $nextoder = 'asc';
 }
 
-// Fetch shoes from the database
-$query = "SELECT * FROM shoes";
+// fetch shoes
+$getshoes = "SELECT * FROM shoes";
 if ($pricesort === 'price') {
-    $query .= " ORDER BY Price $sortingUpDown";  
+    $getshoes .= " ORDER BY Price $sortingUpDown";  
 } else {
-    $query .= " ORDER BY Name $sortingUpDown";  
+    $getshoes .= " ORDER BY Name $sortingUpDown";  
 }
 
-$result = $conn->query($query);
+$result = $conn->query($getshoes);
 $shoes = [];
 while ($row = $result->fetch_assoc()) {
     $shoes[] = $row;
