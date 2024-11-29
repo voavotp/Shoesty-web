@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $result->fetch_assoc();
 
         if (password_verify($password, $user['Password'])) {
-            // Set session variables
+            // Session variables
             $_SESSION['username'] = $user['Username'];
             $_SESSION['email'] = $user['Email'];
             $_SESSION['Admin'] = ($user['Username'] === 'ShoeAdmin');
@@ -45,10 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login Form</title>
 </head>
 <body> 
-<!-- logo -->
+    <!-- logo -->
     <section>
         <img src="images/name.png" class="logo" width="200">
     </section>
+    
     <!-- form for login -->
     <div class="formbox">
         <h1>Login</h1>

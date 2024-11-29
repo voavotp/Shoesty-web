@@ -65,26 +65,26 @@ while ($row = $result->fetch_assoc()) {
         </a>
     </div>
 
-    <!-- shoeboxes -->
-    <div id="showresult">
-        <?php if (count($shoes) > 0): ?>
-            <?php foreach ($shoes as $shoe): ?>
-                <?php include 'php/shoebox.php'; ?>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No shoes available.</p>
-        <?php endif; ?>
+        <!-- shoeboxes -->
+        <div id="showresult">
+            <?php if (count($shoes) > 0): ?>
+                <?php foreach ($shoes as $shoe): ?>
+                    <?php include 'php/shoebox.php'; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No shoes available.</p>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
 
-<section class="footer">
-  <footer>
-  <?php
-    $title = 'footer';
-    $page = 'Shoes';
-    include_once('php/footer.php');
-  ?>
-</footer>
-</section>
+    <section class="footer">
+    <footer>
+    <?php
+        $title = 'footer';
+        $page = 'Shoes';
+        include_once('php/footer.php');
+    ?>
+    </footer>
+    </section>
 </body>
 </html>

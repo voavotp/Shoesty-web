@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
+        
         // verify account, set sesssion to username then allow user into site
         if (password_verify($password, $user['Password'])) {
             $_SESSION['username'] = $user['Username'];
